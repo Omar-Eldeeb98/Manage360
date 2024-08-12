@@ -1,5 +1,6 @@
 # Manage360
-- ([Employees management system] & [AI Chatting app] based on Gemini api "with manay options and attractive design").
+- Employees management system & AI Chatting app based on Gemini api "with many options and attractive design".
+- This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
 
 ## Features: 
 - Signup, Signin, inputs validation, chatting page with AI with many options like clear chat or copy answer message, 
