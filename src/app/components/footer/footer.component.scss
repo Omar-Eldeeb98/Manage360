@@ -1,0 +1,84 @@
+.col-md-12 {
+  background-color: #3f51b5;
+  color: #bc9a44;
+  font-weight: bold;
+}
+
+.social-container {
+  background-color: transparent;
+}
+
+.social-container a {
+  color: #bc9a44;
+}
+
+.social-container i {
+  font-size: 25px;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.social-container i:hover {
+  transform: scale(1.2);
+}
+
+// .div2 {
+// }
+.div2 p {
+  font-size: 20px !important;
+  background-color: rgba(0, 0, 0, 0.522);
+  padding: 5px 6px !important;
+  border-radius: 4px;
+}
+
+.div1 p {
+  font-size: 14px !important;
+  background-color: rgba(0, 0, 0, 0.522);
+  padding: 5px 6px !important;
+  border-radius: 4px;
+}
+
+.div1 p span {
+  background-color: #bc9a44;
+  color: #3f51b5;
+  padding: 4px 8px !important;
+  margin-inline: 3px !important;
+  border-radius: 4px;
+}
+
+.div1 p.name {
+  background-color: rgba(0, 0, 0, 0.522);
+  padding: 5px 0px !important;
+  border-radius: 4px;
+}
+
+.qrcon {
+  width: 100px;
+  height: 100px;
+  background-color: transparent !important;
+  cursor: pointer;
+}
+
+.qrcon:hover p {
+  display: block;
+}
+
+.qrcon img {
+  width: 85% !important;
+}
+
+.qrcon p {
+  position: absolute;
+  right: 110%;
+  background-color: rgba(0, 0, 0, 0.515);
+  display: none;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
+}
+
+.social-container a i {
+  background-color: rgba(0, 0, 0, 0.521);
+  padding: 4px 6px !important;
+  border-radius: 4px;
+}

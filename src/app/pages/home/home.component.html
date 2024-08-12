@@ -1,0 +1,114 @@
+<section class="section-notfound w-100 h-100">
+  <div class="container-fluid">
+    <div class="row justify-content-center p-1">
+      <div class="col-md-9 mx-auto my-container_ p-2 rounded">
+        <div class="my-container rounded p-2 shadow">
+          <button
+            class="clear-btn shadow rounded-3"
+            *ngIf="chatHistory.length > 0"
+            (click)="clearChat()"
+          >
+            <i class="fa-solid fa-plus mx-1"></i> New Chat
+          </button>
+          <div class="mt-2 overflow-hidden">
+            <header class="header-container mx-auto">
+              <img
+                src="assets/logos/ite.png"
+                alt="logo"
+                class="w-100 h-100 animate__animated animate__fadeInDownBig"
+              />
+            </header>
+            <p
+              class="text-center mt-2 text-uppercase fw-bold mt-3 animate__animated g animate__fadeInUpBig"
+            >
+              Ask <span>anything</span>
+            </p>
+          </div>
+
+          <main
+            class="chat-history px-2 py-2 w-100"
+            *ngIf="chatHistory.length > 0; else empty"
+          >
+            <ng-container *ngFor="let msg of chatHistory">
+              <div
+                class="user-box py-2 pe-3 ps-1 ms-auto my-2"
+                *ngIf="msg.from === 'user'"
+              >
+                <div class="icon-con me-2">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <span
+                  class="response text-capitalize"
+                  [innerHTML]="formatText(msg.message)"
+                ></span>
+              </div>
+
+              <div
+                class="bot-box py-2 pe-3 ps-1 my-2"
+                *ngIf="msg.from === 'bot'"
+              >
+                <div class="icon-con_ me-2">
+                  <i class="b fa-solid fa-robot"></i>
+                </div>
+                <span
+                  #textToCopy
+                  class="response text-capitalize"
+                  [innerHTML]="formatText(msg.message)"
+                ></span>
+
+                <div class="icon-con_ copy ms-2">
+                  <i
+                    class="b fa-regular fa-copy"
+                    (click)="copyText(textToCopy.textContent)"
+                  ></i>
+                </div>
+              </div>
+
+              <hr class="text-warning border-2" *ngIf="msg.from === 'bot'" />
+            </ng-container>
+
+            <div
+              class="w-100 d-flex align-items-center justify-content-center mt-3 pt-3"
+              *ngIf="isLoading"
+            >
+              <app-skeleton></app-skeleton>
+            </div>
+          </main>
+
+          <footer class="w-100 mx-auto form-group d-flex p-3 rounded">
+            <input
+              #inputMessage
+              [(ngModel)]="prompt"
+              type="text"
+              class="w-100"
+              id="msg-input"
+              placeholder="What Do You Thinking About?"
+              (keyup.enter)="sendData()"
+              autocomplete="off"
+              [disabled]="isLoading"
+            />
+            <button
+              id="send-btn"
+              class="mx-1 px-3 mx-2"
+              (click)="sendData()"
+              [disabled]="isLoading"
+              [disabled]="inputMessage.value == ''"
+            >
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </footer>
+
+          <ng-template #empty>
+            <div class="empty-container">
+              <img src="assets/logos/mascot.png" alt="ropot" class="w-100" />
+              <p class="msg_ text-capitalize mx-0 p-2 rounded">
+                👋 hi, start Chatting With me.
+              </p>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

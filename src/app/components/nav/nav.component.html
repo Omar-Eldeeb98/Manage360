@@ -1,0 +1,279 @@
+<p>
+  <mat-toolbar color="primary" class="ps-1">
+    <div class="logo-con d-flex align-items-center justify-content-between">
+      <img src="assets/logos/find.png" alt="logo" class="me-1 logo" />
+      <span class="text-capitalize fw-bolder h3 p-0 m-0 me-3">M360</span>
+    </div>
+    <div class="">
+      <button
+        class="btn-toggler shadow-lg text-warning"
+        (click)="sidenav.toggle()"
+        (click)="isChanged = !isChanged"
+      >
+        <span [ngClass]="{ 'd-none': isChanged }" class="m-0 p-0 text-warning"
+          ><i class="fa-solid fa-bars fw-bold nav-toggler-icon"></i
+        ></span>
+        <span [ngClass]="{ 'd-none': !isChanged }" class="m-0 p-0 text-warning">
+          <i class="fa-solid fa-xmark fw-bold nav-toggler-icon"></i
+        ></span>
+      </button>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center ms-auto">
+      <button
+        *ngIf="!isLogin"
+        class="nav-btn mx-1"
+        routerLink="/signin"
+        routerLinkActive="active1"
+      >
+        Login
+      </button>
+      <button
+        *ngIf="!isLogin"
+        class="nav-btn mx-1"
+        routerLink="signup"
+        routerLinkActive="active1"
+      >
+        Signup
+      </button>
+
+      <div class="d-flex align-items-center justify-content-center">
+        <div
+          class="state px-2 py-0 rounded mx-2 d-flex align-items-center justify-content-center"
+          *ngIf="isLogin"
+        >
+          <span class="_email text-warning"
+            >{{ this.storedToken.email }}
+
+            <i class="fa-solid fa-circle mx-1 text-success small"></i>
+          </span>
+        </div>
+        <div class="img-con2" *ngIf="isLogin">
+          <img
+            src="assets/logos/contact.png"
+            alt="user"
+            class="rounded-circle user-img w-100 h-100"
+          />
+        </div>
+      </div>
+
+      <div class="dropdown mx-3" *ngIf="isLogin">
+        <a
+          class="dropdown-toggle text-warning fw-bolder fs-4"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+        </a>
+
+        <ul class="dropdown-menu mt-3 shadow-lg text-center">
+          <li class="mx-2">
+            <a class="dropdown-item fw-bold" (click)="logout()">Sign Out</a>
+          </li>
+
+          <hr class="text-warning p-0 m-0 my-1 w-75 mx-auto" />
+        </ul>
+      </div>
+    </div>
+  </mat-toolbar>
+</p>
+
+<!--!========================================================================================================================-->
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav
+    class="example-sidenav shadow rounded"
+    #sidenav
+    mode="side"
+    opened="false"
+  >
+    <mat-nav-list class="">
+      <div
+        class="px-2 py-0 mx-2 d-flex align-items-center justify-content-start gap-2 py-1 px-2"
+        routerLink="/home"
+        routerLinkActive="active"
+      >
+        <img src="assets/logos/ite.png" alt="" class="me-2" />
+        <a
+          class="fw-bold fw-bolder mat-list-item h5 p-0 m-0 pt-1 text-capitalize"
+          >AI Chatting
+        </a>
+      </div>
+
+      <hr class="my-1 text-warning border-1" />
+
+      <div
+        class="px-2 py-0 mx-2 d-flex align-items-center justify-content-start gap-2 py-1 px-2"
+        routerLink="/users"
+        routerLinkActive="active"
+      >
+        <img src="assets/logos/user.png" alt="" class="me-2" />
+        <a
+          class="fw-bold fw-bolder mat-list-item h5 p-0 m-0 pt-1 text-capitalize"
+        >
+          Employees
+        </a>
+      </div>
+
+      <hr class="my-1 text-warning border-1" />
+      <div
+        class="px-2 py-0 mx-2 d-flex align-items-center justify-content-start gap-2 py-1 px-2"
+        routerLink="adduser"
+        routerLinkActive="active"
+      >
+        <img src="assets/logos/add-user.png" alt="" class="me-2" />
+        <a
+          class="fw-bold fw-bolder mat-list-item h5 p-0 m-0 pt-1 text-capitalize"
+        >
+          Add New
+        </a>
+      </div>
+      <hr class="my-1 text-warning border-1" />
+      <div
+        routerLink="/analysis"
+        routerLinkActive="active"
+        class="px-2 py-0 mx-2 d-flex align-items-center justify-content-start gap-2 py-1 px-2"
+      >
+        <img src="assets/logos/ch.png" alt="" class="me-2" />
+        <a
+          class="fw-bold fw-bolder mat-list-item h5 p-0 m-0 pt-1 text-capitalize"
+          >Charts
+        </a>
+      </div>
+
+      <hr class="my-1 text-warning border-1" />
+      <div
+        (click)="logout()"
+        *ngIf="isLogin"
+        class="px-2 py-0 mx-2 d-flex align-items-center justify-content-start gap-2 py-1 px-2"
+      >
+        <img src="assets/logos/logout.png" alt="" class="me-2" />
+        <a
+          class="fw-bold fw-bolder mat-list-item h5 p-0 m-0 pt-1 text-capitalize"
+        >
+          Sign Out
+        </a>
+      </div>
+
+      <hr class="my-1 text-warning border-1" *ngIf="isLogin" />
+      <div
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        class="px-2 py-0 mx-2 d-flex align-items-center justify-content-start gap-2 py-1 px-2"
+      >
+        <img src="assets/logos/info.png" alt="" class="me-2" />
+        <a
+          class="fw-bold fw-bolder mat-list-item h5 p-0 m-0 pt-1 text-capitalize"
+        >
+          About
+        </a>
+      </div>
+
+      <hr *ngIf="isLogin" class="my-1 text-warning border-1" />
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="example-sidenav-content d-flex">
+    <div class="w-100">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-sidenav-container>
+
+<!--&================================ Modal =====================================================================-->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content shadow">
+      <div
+        class="modal-header d-flex align-items-center justify-content-between"
+      >
+        <h1
+          class="modal-title fs-5 p-2 px-3 lead rounded shadow text-uppercase mt-1"
+          id="exampleModalLabel"
+        >
+          Manage 360
+        </h1>
+
+        <div class="">
+          <img class="h_img" src="assets/logos/find.png" alt="logo" />
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="p-2 px-3 text-capitalize">
+          <span class="text-white me-2"> Manage360 : </span> is a web
+          application for managing the employees in Organication. admins logins,
+          and many features.
+          <span
+            ><hr />
+            <span class="text-white me-1"> AI chat App : </span> and we Provide
+            effective ai chat application page, based on gemini.
+          </span>
+        </p>
+
+        <p class="p-2 px-3">For more information, please Contact Me at :</p>
+
+        <div class="social-container text-center">
+          <a
+            class="text-decoration-none"
+            href="https://omar-eldeeb98.github.io/My-Website/home"
+            target="_blank"
+            ><i class="mx-2 fa-brands fa-wolf-pack-battalion"></i
+          ></a>
+          <a
+            href="mailto:omarmakrameldeeb.98@gmail.com"
+            target="_blank"
+            class="text-decoration-none"
+          >
+            <i class="mx-2 fa-solid fa-envelope"></i
+          ></a>
+          <a
+            href="https://github.com/Omar-Eldeeb98"
+            target="_blank"
+            class="text-decoration-none"
+            ><i class="mx-2 fa-brands fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/omar-eldeeb-60a130199/"
+            target="_blank"
+            class="text-decoration-none"
+            ><i class="mx-2 fa-brands fa-linkedin"></i
+          ></a>
+          <a
+            href="https://wa.me/+201018341760"
+            target="_blank"
+            class="text-decoration-none"
+          >
+            <i class="mx-2 fa-brands fa-square-whatsapp"></i
+          ></a>
+        </div>
+      </div>
+
+      <div
+        class="modal-footer d-flex align-items-center justify-content-between"
+      >
+        <div class="div1">
+          <p class="p-0 m-0">
+            Copyright © 2024 Manage360. All rights reserved.
+          </p>
+        </div>
+        <div class="mx-auto">
+          <button
+            type="button"
+            class="_closebtn btn btn-danger rounded-end-pill p-1 px-2"
+            data-bs-dismiss="modal"
+          >
+            Close <i class="fa-solid fa-xmark mx-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--&================================ Modal =====================================================================-->

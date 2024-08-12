@@ -1,0 +1,360 @@
+<section class="w-100 h-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div>
+          <div
+            class="dd d-flex w-100 align-items-center justify-content-center rounded shadow py-2"
+          >
+            <img src="assets/logos/edit.png" class="me-3" alt="" />
+            <h1 class="fw-bold p-0 m-0 text-uppercase">Edit Employee :</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div>
+          <hr />
+        </div>
+      </div>
+
+      <div class="col-md-6 mx-auto mt-4">
+        <div class="form-container">
+          <form
+            class="p-2 rounded shadow pt-3"
+            [formGroup]="editUserform"
+            (ngSubmit)="updateUser()"
+          >
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="fName" class="form-label fw-bold bg-danger mb-1"
+                    >First Name:</label
+                  >
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"
+                      ><i class="fa-solid fa-user text-warning"></i
+                    ></span>
+                    <input
+                      aria-describedby="basic-addon1"
+                      [ngClass]="{
+                        'is-valid': true,
+                        'is-invalid': editUserform.get('fName')?.errors
+                      }"
+                      formControlName="fName"
+                      type="text"
+                      id="fName"
+                      class="form-control"
+                      placeholder="Enter First Name :"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="alerts-container mt-1"
+                  *ngIf="
+                    editUserform.get('fName')?.errors &&
+                    editUserform.get('fName')?.touched
+                  "
+                >
+                  <p
+                    class="alert alert-danger text-capitalize m-0 p-1"
+                    *ngIf="editUserform.get('fName')?.getError('required')"
+                  >
+                    * Fname is required
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="lName" class="form-label fw-bold bg-danger mb-1"
+                    >Last Name:</label
+                  >
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"
+                      ><i class="fa-solid fa-user text-warning"></i
+                    ></span>
+                    <input
+                      aria-describedby="basic-addon1"
+                      [ngClass]="{
+                        'is-valid': true,
+                        'is-invalid': editUserform.get('lName')?.errors
+                      }"
+                      formControlName="lName"
+                      type="text"
+                      id="lName"
+                      class="form-control"
+                      placeholder="Enter Last Name :"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="alerts-container mt-1"
+                  *ngIf="
+                    editUserform.get('lName')?.errors &&
+                    editUserform.get('lName')?.touched
+                  "
+                >
+                  <p
+                    class="alert alert-danger text-capitalize m-0 p-1"
+                    *ngIf="editUserform.get('lName')?.getError('required')"
+                  >
+                    * Lname is required
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-12 mt-2">
+                <div class="form-group">
+                  <label for="email" class="form-label fw-bold bg-danger mb-1"
+                    >Email :
+                  </label>
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"
+                      ><i class="fa-solid fa-envelope text-warning"></i>
+                    </span>
+                    <input
+                      aria-describedby="basic-addon1"
+                      [ngClass]="{
+                        'is-valid': true,
+                        'is-invalid': editUserform.get('email')?.errors
+                      }"
+                      formControlName="email"
+                      type="email"
+                      id="email"
+                      class="form-control"
+                      placeholder="Enter a valid email :"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="alerts-container mt-1"
+                  *ngIf="
+                    editUserform.get('email')?.errors &&
+                    editUserform.get('email')?.touched
+                  "
+                >
+                  <p
+                    class="alert alert-danger text-capitalize m-0 p-1"
+                    *ngIf="editUserform.get('email')?.getError('required')"
+                  >
+                    * Email is required
+                  </p>
+                  <p
+                    class="alert alert-danger text-capitalize m-0 p-1"
+                    *ngIf="editUserform.get('email')?.getError('email')"
+                  >
+                    * invalid email address !
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6 mt-2">
+                <div class="form-group">
+                  <label for="phone" class="form-label fw-bold bg-danger mb-1"
+                    >Phone :
+                  </label>
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"
+                      ><i class="fa-solid fa-phone text-warning"></i>
+                    </span>
+                    <input
+                      aria-describedby="basic-addon1"
+                      [ngClass]="{
+                        'is-valid': true,
+                        'is-invalid': editUserform.get('phone')?.errors
+                      }"
+                      formControlName="phone"
+                      type="tel"
+                      id="text"
+                      class="form-control"
+                      placeholder="Enter a valid Phone :"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="alerts-container mt-1"
+                  *ngIf="
+                    editUserform.get('phone')?.errors &&
+                    editUserform.get('phone')?.touched
+                  "
+                >
+                  <p
+                    class="alert alert-danger text-capitalize m-0 p-1"
+                    *ngIf="editUserform.get('phone')?.getError('required')"
+                  >
+                    * Phone is required
+                  </p>
+                  <p
+                    class="alert alert-danger text-capitalize m-0 p-1"
+                    *ngIf="editUserform.get('phone')?.getError('pattern')"
+                  >
+                    * Accept Egyption numbers only
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6 mt-2">
+                <div class="form-group">
+                  <label for="id" class="form-label fw-bold bg-danger mb-1"
+                    >ID :
+                  </label>
+                  <span class="mx-1 text-warning">
+                    * Update ID is not allowed.</span
+                  >
+
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"
+                      ><i class="fa-solid fa-mobile text-warning"></i>
+                    </span>
+                    <input
+                      aria-describedby="basic-addon1"
+                      readonly
+                      [disabled]="true"
+                      formControlName="id"
+                      type="text"
+                      id="id"
+                      class="form-control is-valid"
+                      placeholder="create ID :"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mt-2">
+                <div class="form-group">
+                  <label
+                    for="position"
+                    class="form-label fw-bold bg-danger mb-1"
+                    >Position :
+                  </label>
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"
+                      ><i class="fa-solid fa-briefcase text-warning"></i>
+                    </span>
+
+                    <select
+                      [ngClass]="{
+                        'is-valid': editUserform.get('role')?.valid,
+                        'is-invalid':
+                          editUserform.get('role')?.errors &&
+                          editUserform.get('role')?.touched
+                      }"
+                      aria-describedby="basic-addon1"
+                      id="position"
+                      class="form-control text-black"
+                      formControlName="role"
+                    >
+                      <option value="" class="bg-warning">
+                        -- Select Position --
+                      </option>
+
+                      <option value="junior" class="bg-warning text-center">
+                        Junior
+                      </option>
+
+                      <option value="senior" class="bg-warning text-center">
+                        Senior
+                      </option>
+
+                      <option value="leader" class="bg-warning text-center">
+                        Leader
+                      </option>
+
+                      <option value="manager" class="bg-warning text-center">
+                        Manager
+                      </option>
+
+                      <option value="ceo" class="bg-warning text-center">
+                        CEO
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  class="alerts-container mt-1"
+                  *ngIf="
+                    editUserform.get('role')?.errors &&
+                    editUserform.get('role')?.touched
+                  "
+                >
+                  <p
+                    class="alert alert-danger text-capitalize m-0 p-1"
+                    *ngIf="editUserform.get('role')?.getError('required')"
+                  >
+                    * Pls Select Position
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6 mt-2">
+                <div class="form-group">
+                  <label
+                    for="position"
+                    class="form-label fw-bold bg-danger mb-1"
+                    >Gender :
+                  </label>
+                  <div class="input-group">
+                    <div
+                      class="radio-container w-100 p-2 rounded shadow d-flex align-items-start justify-content-evenly"
+                    >
+                      <div class="d-flex align-items-center">
+                        <input
+                          id="male"
+                          type="radio"
+                          class="p-2"
+                          formControlName="gender"
+                          value="male"
+                        />
+                        <label for="male" class="mx-2">Male</label>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <input
+                          id="female"
+                          type="radio"
+                          class="p-2"
+                          formControlName="gender"
+                          value="female"
+                        />
+                        <label for="female" class="mx-2">Female</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="my-3 w-75 mx-auto text-warning border-2" />
+
+              <div class="col-md-12 text-center">
+                <div>
+                  <button
+                    [disabled]="editUserform.invalid"
+                    type="submit"
+                    class="btn btn-outline-warning mx-1"
+                    (click)="updateUser()"
+                  >
+                    <i
+                      *ngIf="isLoading"
+                      class="fa-solid fa-spinner fa-spin mx-1"
+                    ></i>
+                    <i class="fa-solid fa-pen mx-1"></i> Update
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn-danger"
+                    (click)="goBack()"
+                  >
+                    <i class="fa-solid fa-xmark mx-1"></i>Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

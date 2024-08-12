@@ -1,0 +1,62 @@
+div.dd img {
+  width: 45px;
+  height: 45px;
+}
+div.dd h1 {
+  color: #9fa8da;
+}
+
+div.dd {
+  background-color: #3f51b5;
+}
+
+.form-group .form-label {
+  background-color: #9fa8da !important;
+  padding: 4px;
+  border-radius: 4px;
+  color: #3f51b5;
+}
+
+form {
+  background-color: #3f51b5 !important;
+}
+
+//?=============
+
+form label {
+  font-weight: bold !important;
+  color: #3f51b5;
+
+  background-color: #9fa8da;
+  border-radius: 4px;
+}
+
+.input-group {
+  margin-bottom: 4px;
+}
+
+// form input {
+//   padding-block: 8px !important;
+//   border: 1px solid #007cff !important;
+//   letter-spacing: 1px !important;
+
+// }
+form input:focus {
+  box-shadow: none;
+}
+
+form input::placeholder {
+  color: gray !important;
+}
+
+.up-btn {
+  color: #3f51b5;
+  font-weight: bold;
+}
+
+._ss:hover {
+  background-color: #1e2757 !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  transition: all 0.3s ease-in-out;
+}

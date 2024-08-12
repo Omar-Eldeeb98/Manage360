@@ -1,0 +1,43 @@
+@import "~animate.css/animate.css";
+.spalsh {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #3f51b5 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.logo-container {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spalsh p {
+  color: #ddb12f !important;
+  letter-spacing: 2px !important;
+  // background-color: rgba(0, 0, 0, 0.511);
+  background-color: #1c3b5c !important;
+}
+.spalsh span {
+  color: #ddb12f !important;
+  letter-spacing: 2px !important;
+}
+
+span._by {
+  text-align: center !important;
+  background-color: transparent;
+  font-size: 14px;
+  letter-spacing: 3px !important;
+}

@@ -1,0 +1,154 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div>
+          <div
+            class="dd d-flex w-100 align-items-center justify-content-center rounded shadow py-2"
+          >
+            <img src="assets/logos/login.png" class="me-3" alt="" />
+            <h1 class="fw-bold p-0 m-0 text-uppercase">Log In :</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div>
+          <hr class="text-warning border-2" />
+        </div>
+      </div>
+
+      <div class="col-md-5 mx-auto">
+        <div class="form-container">
+          <form
+            class="rounded-2 shadow-lg p-2"
+            [formGroup]="loginForm"
+            (ngSubmit)="handleForm()"
+          >
+            <div class="form-group">
+              <label for="email" class="text-capitalize my-2 p-1 form-label"
+                >email:</label
+              >
+
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"
+                  ><i class="fa-solid fa-envelope text-warning"></i
+                ></span>
+                <input
+                  [ngClass]="{
+                    'is-valid': loginForm.get('email')?.valid,
+                    'is-invalid':
+                      loginForm.get('email')?.errors &&
+                      loginForm.get('email')?.touched
+                  }"
+                  aria-describedby="basic-addon1"
+                  formControlName="email"
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  placeholder="enter your email "
+                />
+              </div>
+            </div>
+            <div
+              class="alerts-container"
+              *ngIf="
+                loginForm.get('email')?.errors &&
+                loginForm.get('email')?.touched
+              "
+            >
+              <p
+                class="alert alert-danger text-capitalize"
+                *ngIf="loginForm.get('email')?.getError('required')"
+              >
+                * email field is required
+              </p>
+              <p
+                class="alert alert-danger"
+                *ngIf="loginForm.get('email')?.getError('email')"
+              >
+                * invalid email, enter a valid email
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="text-capitalize my-2 p-1"
+                >password:</label
+              >
+
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"
+                  ><i class="fa-solid fa-key text-warning"></i
+                ></span>
+                <input
+                  [ngClass]="{
+                    'is-valid': loginForm.get('password')?.valid,
+                    'is-invalid':
+                      loginForm.get('password')?.errors &&
+                      loginForm.get('password')?.touched
+                  }"
+                  aria-describedby="basic-addon1"
+                  formControlName="password"
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  placeholder="enter your password "
+                />
+              </div>
+            </div>
+            <div
+              class="alerts-container"
+              *ngIf="
+                loginForm.get('password')?.errors &&
+                loginForm.get('password')?.touched
+              "
+            >
+              <p
+                class="alert alert-danger"
+                *ngIf="loginForm.get('password')?.getError('required')"
+              >
+                password is required
+              </p>
+              <p
+                class="alert alert-danger"
+                *ngIf="loginForm.get('password')?.getError('pattern')"
+              >
+                password is invalid
+              </p>
+            </div>
+
+            <hr class="mb-0 text-warning border-2" />
+            <div
+              class="btn-container d-flex justify-content-between align-items-center flex-wrap g-2"
+            >
+              <div class="me-2 ms-1">
+                <span class="text-capitalize text-white"
+                  >Do not have an account ?</span
+                >
+                <a
+                  routerLink="/signup"
+                  class="_ss text-decoration-none ms-1 text-warning lead"
+                  >Sign-Up</a
+                >
+              </div>
+              <button
+                (click)="handleForm()"
+                class="in-btn btn btn-warning text-capitalize my-3 shadow"
+                [disabled]="loginForm.invalid"
+              >
+                <i
+                  class="fa-solid fa-spinner fa-spin-pulse me-1"
+                  *ngIf="isLoading"
+                ></i>
+                <span *ngIf="!isLoading"> Log In</span>
+              </button>
+            </div>
+
+            <div class="alert-container" *ngIf="errorMessage">
+              <p class="alert alert-danger">{{ errorMessage }}</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

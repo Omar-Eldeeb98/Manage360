@@ -1,0 +1,35 @@
+div.dd img {
+  width: 45px;
+  height: 45px;
+}
+div.dd h1 {
+  color: #9fa8da;
+}
+
+div.dd {
+  background-color: #3f51b5;
+}
+
+.form-group .form-label {
+  background-color: #9fa8da !important;
+  padding: 4px;
+  border-radius: 4px;
+  color: #3f51b5;
+}
+
+form {
+  background-color: #3f51b5 !important;
+}
+.radio-container {
+  background-color: #1e2757 !important;
+  color: #ffb646 !important;
+  font-weight: bold !important;
+  letter-spacing: 2px !important;
+  font-size: 15px;
+}
+
+input[type="radio"] {
+  accent-color: #ffb646 !important;
+  width: 16px !important;
+  height: 16px !important;
+}

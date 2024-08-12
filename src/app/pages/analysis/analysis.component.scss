@@ -1,0 +1,39 @@
+div.dd img {
+  width: 45px;
+  height: 45px;
+}
+div.dd h1 {
+  color: #9fa8da;
+}
+
+div.dd {
+  background-color: #3f51b5;
+}
+
+.chart-container {
+  background-color: #1d2654;
+}
+
+.chart-container p {
+  background-color: #3f51b5;
+  color: #9fa8da;
+  padding: 5px 6px;
+  border-radius: 3px;
+  width: fit-content;
+}
+
+.img-container {
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.756);
+}
+
+.msg-container p {
+  font-size: 25px;
+  background-color: rgba(0, 0, 0, 0.756);
+  color: #ffa726;
+  width: fit-content;
+}

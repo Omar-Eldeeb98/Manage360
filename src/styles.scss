@@ -1,0 +1,24 @@
+//^ ==================================== global styles =================================================================
+@import "~animate.css/animate.css";
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 18px; /* Width of the scrollbar */
+}
+::-webkit-scrollbar-track {
+  /* Color of the scrollbar track */
+  background: #ff9c01;
+  border: 2px solid whitesmoke !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1d2654; /* Color of the scrollbar thumb */
+}

@@ -1,0 +1,290 @@
+<section class="">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div>
+          <div
+            class="dd d-flex w-100 align-items-center justify-content-center rounded shadow py-2"
+          >
+            <img src="assets/logos/add-user2.png" class="me-3" alt="" />
+            <h1 class="fw-bold p-0 m-0 text-uppercase">Sign Up :</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div>
+          <hr class="text-warning border-2" />
+        </div>
+      </div>
+
+      <div class="col-md-5 mx-auto">
+        <div class="form-container">
+          <form
+            class="rounded-2 shadow-lg p-2"
+            [formGroup]="registerForm"
+            (ngSubmit)="handleForm()"
+          >
+            <div class="form-group">
+              <label for="name" class="text-capitalize my-2 p-1">name:</label>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"
+                  ><i class="fa-solid fa-user text-warning"></i
+                ></span>
+                <input
+                  [ngClass]="{
+                    'is-valid': registerForm.get('name')?.valid,
+                    'is-invalid':
+                      registerForm.get('name')?.errors &&
+                      registerForm.get('name')?.touched
+                  }"
+                  aria-describedby="basic-addon1"
+                  formControlName="name"
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  placeholder="enter your name "
+                />
+              </div>
+            </div>
+            <div
+              class="alerts-container"
+              *ngIf="
+                registerForm.get('name')?.errors &&
+                registerForm.get('name')?.touched
+              "
+            >
+              <p
+                class="alert alert-danger text-capitalize"
+                *ngIf="registerForm.get('name')?.getError('required')"
+              >
+                * name field is required
+              </p>
+              <p
+                class="alert alert-danger"
+                *ngIf="registerForm.get('name')?.getError('minlength')"
+              >
+                * minimum name length is 3 chars
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="text-capitalize my-2 p-1">email:</label>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"
+                  ><i class="fa-solid fa-envelope text-warning"></i
+                ></span>
+
+                <input
+                  [ngClass]="{
+                    'is-valid': registerForm.get('email')?.valid,
+                    'is-invalid':
+                      registerForm.get('email')?.errors &&
+                      registerForm.get('email')?.touched
+                  }"
+                  aria-describedby="basic-addon1"
+                  formControlName="email"
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  placeholder="enter your email "
+                />
+              </div>
+            </div>
+            <div
+              class="alerts-container"
+              *ngIf="
+                registerForm.get('email')?.errors &&
+                registerForm.get('email')?.touched
+              "
+            >
+              <p
+                class="alert alert-danger text-capitalize"
+                *ngIf="registerForm.get('email')?.getError('required')"
+              >
+                * email field is required
+              </p>
+              <p
+                class="alert alert-danger"
+                *ngIf="registerForm.get('email')?.getError('email')"
+              >
+                * invalid email, enter a valid email
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="text-capitalize my-2 p-1"
+                >password:</label
+              >
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"
+                  ><i class="fa-solid fa-key text-warning"></i
+                ></span>
+                <input
+                  [ngClass]="{
+                    'is-valid': registerForm.get('password')?.valid,
+                    'is-invalid':
+                      registerForm.get('password')?.errors &&
+                      registerForm.get('password')?.touched
+                  }"
+                  aria-describedby="basic-addon1"
+                  formControlName="password"
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  placeholder="enter your password "
+                />
+              </div>
+            </div>
+            <div
+              class="alerts-container"
+              *ngIf="
+                registerForm.get('password')?.errors &&
+                registerForm.get('password')?.touched
+              "
+            >
+              <p
+                class="alert alert-danger"
+                *ngIf="registerForm.get('password')?.getError('required')"
+              >
+                * password is required
+              </p>
+              <p
+                class="alert alert-danger"
+                *ngIf="registerForm.get('password')?.getError('pattern')"
+              >
+                * must start with Capital letter & Lenght betwen [5] to [15]
+                characters
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="age" class="text-capitalize my-2 p-1">age:</label>
+
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"
+                  ><i class="fa-solid fa-a text-warning"></i
+                ></span>
+                <input
+                  [ngClass]="{
+                    'is-valid': registerForm.get('age')?.valid,
+                    'is-invalid':
+                      registerForm.get('age')?.errors &&
+                      registerForm.get('age')?.touched
+                  }"
+                  aria-describedby="basic-addon1"
+                  formControlName="age"
+                  type="number"
+                  id="age"
+                  class="form-control"
+                  placeholder="enter your age "
+                />
+              </div>
+            </div>
+            <div
+              class="alerts-container"
+              *ngIf="
+                registerForm.get('age')?.errors &&
+                registerForm.get('age')?.touched
+              "
+            >
+              <p
+                class="alert alert-danger"
+                *ngIf="registerForm.get('age')?.getError('required')"
+              >
+                * age is required
+              </p>
+            </div>
+            <div
+              class="alerts-container"
+              *ngIf="
+                registerForm.get('age')?.errors &&
+                registerForm.get('age')?.touched
+              "
+            >
+              <p
+                class="alert alert-danger"
+                *ngIf="registerForm.get('age')?.getError('pattern')"
+              >
+                * you should be 18+ years old
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="phone" class="text-capitalize my-2 p-1">phone:</label>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"
+                  ><i class="fa-solid fa-mobile text-warning"></i
+                ></span>
+                <input
+                  [ngClass]="{
+                    'is-valid': registerForm.get('phone')?.valid,
+                    'is-invalid':
+                      registerForm.get('phone')?.errors &&
+                      registerForm.get('phone')?.touched
+                  }"
+                  aria-describedby="basic-addon1"
+                  formControlName="phone"
+                  type="tel"
+                  id="phone"
+                  class="form-control"
+                  placeholder="enter your phone number "
+                />
+              </div>
+            </div>
+            <div
+              class="alerts-container"
+              *ngIf="
+                registerForm.get('phone')?.errors &&
+                registerForm.get('phone')?.touched
+              "
+            >
+              <p
+                class="alert alert-danger"
+                *ngIf="registerForm.get('phone')?.getError('required')"
+              >
+                * phone is required
+              </p>
+              <p
+                class="alert alert-danger"
+                *ngIf="registerForm.get('phone')?.getError('pattern')"
+              >
+                * we accept only egyptions phone numbers
+              </p>
+            </div>
+
+            <hr class="mb-0 text-warning border-2" />
+
+            <div
+              class="btn-container d-flex justify-content-between align-items-center"
+            >
+              <div class="me-2">
+                <span class="text-capitalize text-white me-2 ms-1"
+                  >have an account ?</span
+                >
+                <a
+                  routerLink="/signin"
+                  class="_ss text-decoration-none text-warning lead"
+                  >Sign-In</a
+                >
+              </div>
+              <button
+                class="up-btn btn btn-warning text-capitalize my-3 shadow"
+                [disabled]="registerForm.invalid"
+              >
+                <i
+                  class="fa-solid fa-spinner fa-spin-pulse me-1"
+                  *ngIf="isLoading"
+                ></i>
+                <span *ngIf="!isLoading"> sign up</span>
+              </button>
+            </div>
+
+            <div class="alert-container" *ngIf="errorMessage">
+              <p class="alert alert-danger">{{ errorMessage }}</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,85 @@
+{
+  "users": [
+    {
+      "id": "87",
+      "fName": "Emi",
+      "lName": "Abbott",
+      "role": "manager",
+      "email": "mahydeg@mailinator.com",
+      "phone": "01145874498",
+      "gender": "female"
+    },
+    {
+      "id": "88897",
+      "fName": "Jerome",
+      "role": "leader",
+      "lName": "Mcclure",
+      "email": "xasax@mailinator.com",
+      "phone": "01127074485",
+      "gender": "female"
+    },
+    {
+      "id": "22",
+      "fName": "Knox",
+      "role": "junior",
+      "lName": "Acosta",
+      "email": "pynyb@mailinator.com",
+      "phone": "01145874498",
+      "gender": "male"
+    },
+    {
+      "id": "334",
+      "fName": "Stone",
+      "role": "junior",
+      "lName": "Tillman",
+      "email": "dazutyfivo@mailinator.com",
+      "phone": "01127074485",
+      "gender": "female"
+    },
+    {
+      "id": "145",
+      "fName": "Leila",
+      "role": "senior",
+      "lName": "Grant",
+      "email": "nuhyf@mailinator.com",
+      "phone": "01127074485",
+      "gender": "female"
+    },
+    {
+      "id": "22",
+      "fName": "Vaughan",
+      "role": "leader",
+      "lName": "Stevenson",
+      "email": "fabegoqido@mailinator.com",
+      "phone": "01127074485",
+      "gender": "male"
+    },
+    {
+      "id": "33",
+      "fName": "Jakeem",
+      "role": "senior",
+      "lName": "Chang",
+      "email": "dakaca@mailinator.com",
+      "phone": "01145874343",
+      "gender": "male"
+    },
+    {
+      "id": "667",
+      "fName": "Hanae",
+      "role": "senior",
+      "lName": "Velasquez",
+      "email": "lobewyha@mailinator.com",
+      "phone": "01012145454",
+      "gender": "male"
+    },
+    {
+      "id": "1111",
+      "fName": "Sacha",
+      "role": "ceo",
+      "lName": "Harrington",
+      "email": "hynasabep@mailinator.com",
+      "phone": "01145874498",
+      "gender": "male"
+    }
+  ]
+}

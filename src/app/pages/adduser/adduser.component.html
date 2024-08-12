@@ -1,0 +1,381 @@
+<section class="w-100 h-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div>
+          <div
+            class="dd d-flex w-100 align-items-center justify-content-center rounded shadow py-2"
+          >
+            <img src="assets/logos/add-user.png" class="me-3" alt="" />
+            <h1 class="fw-bold p-0 m-0 text-uppercase">Add New Employee :</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div>
+          <hr />
+        </div>
+      </div>
+
+      <div class="col-md-6 mx-auto mt-1">
+        <div class="form-container">
+          <form class="p-2 rounded shadow pt-3" [formGroup]="addUserForm">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mb-1">
+                  <label for="fName" class="form-label fw-bold bg-danger mb-1"
+                    >First Name:</label
+                  >
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"
+                      ><i class="fa-solid fa-user text-warning"></i
+                    ></span>
+                    <input
+                      aria-describedby="basic-addon1"
+                      [ngClass]="{
+                        'is-valid': addUserForm.get('fName')?.valid,
+                        'is-invalid':
+                          addUserForm.get('fName')?.errors &&
+                          addUserForm.get('fName')?.touched
+                      }"
+                      formControlName="fName"
+                      type="text"
+                      id="fName"
+                      class="form-control"
+                      placeholder="Enter First Name :"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="alerts-container mt-1 mb-1"
+                  *ngIf="
+                    addUserForm.get('fName')?.touched &&
+                    addUserForm.get('fName')?.invalid
+                  "
+                >
+                  <p
+                    class="alert alert-danger text-capitalize m-0 p-1"
+                    *ngIf="addUserForm.get('fName')?.getError('required')"
+                  >
+                    * Fname is required
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="lName" class="form-label fw-bold bg-danger mb-1"
+                    >Last Name:</label
+                  >
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"
+                      ><i class="fa-solid fa-user text-warning"></i
+                    ></span>
+                    <input
+                      aria-describedby="basic-addon1"
+                      [ngClass]="{
+                        'is-valid': addUserForm.get('lName')?.valid,
+                        'is-invalid':
+                          addUserForm.get('lName')?.errors &&
+                          addUserForm.get('lName')?.touched
+                      }"
+                      formControlName="lName"
+                      type="text"
+                      id="lName"
+                      class="form-control"
+                      placeholder="Enter Last Name :"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="alerts-container mt-1"
+                  *ngIf="
+                    addUserForm.get('lName')?.errors &&
+                    addUserForm.get('lName')?.touched
+                  "
+                >
+                  <p
+                    class="alert alert-danger text-capitalize m-0 p-1"
+                    *ngIf="addUserForm.get('lName')?.getError('required')"
+                  >
+                    * Lname is required
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-12 mt-2">
+                <div class="form-group">
+                  <label for="email" class="form-label fw-bold bg-danger mb-1"
+                    >Email :
+                  </label>
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"
+                      ><i class="fa-solid fa-envelope text-warning"></i>
+                    </span>
+                    <input
+                      aria-describedby="basic-addon1"
+                      [ngClass]="{
+                        'is-valid': addUserForm.get('email')?.valid,
+                        'is-invalid':
+                          addUserForm.get('email')?.errors &&
+                          addUserForm.get('email')?.touched
+                      }"
+                      formControlName="email"
+                      type="email"
+                      id="email"
+                      class="form-control"
+                      placeholder="Enter a valid email :"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="alerts-container mt-1"
+                  *ngIf="
+                    addUserForm.get('email')?.errors &&
+                    addUserForm.get('email')?.touched
+                  "
+                >
+                  <p
+                    class="alert alert-danger text-capitalize m-0 p-1"
+                    *ngIf="addUserForm.get('email')?.getError('required')"
+                  >
+                    * Email is required
+                  </p>
+                  <p
+                    class="alert alert-danger text-capitalize m-0 p-1"
+                    *ngIf="addUserForm.get('email')?.getError('email')"
+                  >
+                    * Invalid email address !
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6 mt-2">
+                <div class="form-group">
+                  <label for="phone" class="form-label fw-bold bg-danger mb-1"
+                    >Phone :
+                  </label>
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"
+                      ><i class="fa-solid fa-mobile text-warning"></i>
+                    </span>
+                    <input
+                      aria-describedby="basic-addon1"
+                      [ngClass]="{
+                        'is-valid': addUserForm.get('phone')?.valid,
+                        'is-invalid':
+                          addUserForm.get('phone')?.errors &&
+                          addUserForm.get('phone')?.touched
+                      }"
+                      formControlName="phone"
+                      type="tel"
+                      id="text"
+                      class="form-control"
+                      placeholder="Enter a valid Phone :"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="alerts-container mt-1"
+                  *ngIf="
+                    addUserForm.get('phone')?.errors &&
+                    addUserForm.get('phone')?.touched
+                  "
+                >
+                  <p
+                    class="alert alert-danger text-capitalize m-0 p-1"
+                    *ngIf="addUserForm.get('phone')?.getError('required')"
+                  >
+                    * Phone is required
+                  </p>
+                  <p
+                    class="alert alert-danger text-capitalize m-0 p-1"
+                    *ngIf="addUserForm.get('phone')?.getError('pattern')"
+                  >
+                    * Accept Egyption numbers only
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6 mt-2">
+                <div class="form-group">
+                  <label for="id" class="form-label fw-bold bg-danger mb-1"
+                    >ID :
+                  </label>
+
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"
+                      ><i class="fa-solid fa-id-card-clip text-warning"></i>
+                    </span>
+                    <input
+                      aria-describedby="basic-addon1"
+                      [ngClass]="{
+                        'is-valid': addUserForm.get('id')?.valid,
+                        'is-invalid':
+                          addUserForm.get('id')?.errors &&
+                          addUserForm.get('id')?.touched
+                      }"
+                      formControlName="id"
+                      type="text"
+                      id="id"
+                      class="form-control is-valid"
+                      placeholder="create ID :"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="alerts-container mt-1"
+                  *ngIf="
+                    addUserForm.get('id')?.errors &&
+                    addUserForm.get('id')?.touched
+                  "
+                >
+                  <p
+                    class="alert alert-danger text-capitalize m-0 p-1"
+                    *ngIf="addUserForm.get('id')?.getError('required')"
+                  >
+                    * ID is required
+                  </p>
+
+                  <p
+                    class="alert alert-danger text-capitalize m-0 p-1"
+                    *ngIf="addUserForm.get('id')?.getError('pattern')"
+                  >
+                    * Accept numbers only , {{ p }}
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6 mt-2">
+                <div class="form-group">
+                  <label
+                    for="position"
+                    class="form-label fw-bold bg-danger mb-1"
+                    >Position :
+                  </label>
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"
+                      ><i class="fa-solid fa-briefcase text-warning"></i>
+                    </span>
+
+                    <select
+                      [ngClass]="{
+                        'is-valid': addUserForm.get('role')?.valid,
+                        'is-invalid':
+                          addUserForm.get('role')?.errors &&
+                          addUserForm.get('role')?.touched
+                      }"
+                      aria-describedby="basic-addon1"
+                      id="position"
+                      class="form-control text-black"
+                      formControlName="role"
+                    >
+                      <option value="" class="bg-warning">
+                        -- Select Position --
+                      </option>
+
+                      <option value="junior" class="bg-warning text-center">
+                        Junior
+                      </option>
+
+                      <option value="senior" class="bg-warning text-center">
+                        Senior
+                      </option>
+
+                      <option value="leader" class="bg-warning text-center">
+                        Leader
+                      </option>
+
+                      <option value="manager" class="bg-warning text-center">
+                        Manager
+                      </option>
+
+                      <option value="ceo" class="bg-warning text-center">
+                        CEO
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  class="alerts-container mt-1"
+                  *ngIf="
+                    addUserForm.get('role')?.errors &&
+                    addUserForm.get('role')?.touched
+                  "
+                >
+                  <p
+                    class="alert alert-danger text-capitalize m-0 p-1"
+                    *ngIf="addUserForm.get('role')?.getError('required')"
+                  >
+                    * Pls Select Position
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6 mt-2">
+                <div class="form-group">
+                  <label
+                    for="position"
+                    class="form-label fw-bold bg-danger mb-1"
+                    >Gender :
+                  </label>
+                  <div class="input-group">
+                    <div
+                      class="radio-container w-100 p-2 rounded shadow d-flex align-items-start justify-content-evenly"
+                    >
+                      <div class="d-flex align-items-center">
+                        <input
+                          id="male"
+                          type="radio"
+                          class="p-2"
+                          formControlName="gender"
+                          value="male"
+                        />
+                        <label for="male" class="mx-2">Male</label>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <input
+                          id="female"
+                          type="radio"
+                          class="p-2"
+                          formControlName="gender"
+                          value="female"
+                        />
+                        <label for="female" class="mx-2">Female</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="my-3 w-75 mx-auto text-warning border-2" />
+
+              <div class="col-md-12 text-center">
+                <div>
+                  <button
+                    (click)="addUser()"
+                    [disabled]="addUserForm.invalid"
+                    type="submit"
+                    class="btn btn-warning mx-1 px-2 w-100 shadow-lg"
+                  >
+                    Add New User
+                    <i class="fa-solid fa-plus mx-2" *ngIf="!isLoading"></i>
+                    <i
+                      *ngIf="isLoading"
+                      class="fa-solid fa-spinner fa-spin mx-2"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,92 @@
+<section class="w-100 h-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div>
+          <div
+            class="dd d-flex w-100 align-items-center justify-content-center rounded shadow py-2"
+          >
+            <img src="assets/logos/resume.png" class="me-3" alt="" />
+            <h1 class="fw-bold p-0 m-0 text-uppercase">
+              Employee Details Page :
+            </h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div>
+          <hr />
+        </div>
+      </div>
+
+      <div class="col-md-6 mx-auto">
+        <div class="card-container text-center">
+          <div class="my-card p-2 rounded-top shadow">
+            <div class="img-container mx-auto mt-1">
+              <img src="assets/logos/man.png" alt="user photo" class="" />
+            </div>
+            <hr class="text-warning border-1" />
+            <div class="d-flex align-items-center gap-2">
+              <span class="text-warning lead"
+                ><i class="fa-solid fa-user mx-2 text-warning"></i>First Name :
+              </span>
+              <span>{{ user.fName }}</span>
+            </div>
+            <hr class="text-warning border-1" />
+            <div class="d-flex align-items-center gap-2">
+              <span class="text-warning lead"
+                ><i class="fa-solid fa-user mx-2 text-warning"></i>Last Name :
+              </span>
+              <span>{{ user.lName }}</span>
+            </div>
+            <hr class="text-warning border-1" />
+            <div class="d-flex align-items-center gap-2">
+              <span class="lead text-warning"
+                ><i class="fa-solid fa-envelope mx-2"></i>Email :
+              </span>
+              <span>{{ user.email }}</span>
+            </div>
+            <hr class="text-warning border-1" />
+            <div class="d-flex align-items-center gap-2">
+              <span class="lead text-warning"
+                ><i class="fa-solid fa-mobile-button mx-2"></i>Phone:
+              </span>
+              <span>{{ user.phone }}</span>
+            </div>
+            <hr class="text-warning border-1" />
+            <div class="d-flex align-items-center gap-2">
+              <span class="text-warning lead"
+                ><i class="fa-solid fa-briefcase mx-2"></i>Position :
+              </span>
+              <span>{{ user.role }}</span>
+            </div>
+            <hr class="text-warning border-1" />
+            <div class="d-flex align-items-center gap-2">
+              <span class="text-warning lead"
+                ><i class="fa-solid fa-id-card-clip mx-2"></i>ID :
+              </span>
+              <span>{{ user.id }}</span>
+            </div>
+            <hr class="text-warning border-1" />
+            <div class="d-flex align-items-center gap-2">
+              <span class="text-warning lead"
+                ><i class="fa-solid fa-venus-mars mx-2"></i>Gender :
+              </span>
+              <span class="text-capitalize">{{ user.gender }}</span>
+            </div>
+          </div>
+
+          <div class="btn-container rounded-bottom mt-1">
+            <button
+              class="btn btn-outline-warning my-2 lead"
+              (click)="navigateToPreviousRoute()"
+            >
+              <i class="fa-solid fa-arrow-left mx-2"></i>Go Back
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

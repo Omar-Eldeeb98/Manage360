@@ -1,0 +1,199 @@
+<section class="users-section w-100 h-100">
+  <div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-12">
+        <div>
+          <div
+            class="dd d-flex w-100 align-items-center justify-content-center rounded shadow py-2"
+          >
+            <img src="assets/logos/user.png" class="me-3" alt="users_pic" />
+            <h1 class="fw-bold p-0 m-0 text-uppercase">Our Employees :</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-0">
+        <hr class="w-100 mb-1 border-3 text-warning" />
+      </div>
+
+      <!--^search Employees's by ID =========================-->
+      <div class="col-md-5 mb-0 mt-2">
+        <div class="input-group">
+          <span class="_span input-group-text" id="basic-addon1"
+            ><i class="fa-solid fa-magnifying-glass text-warning"></i
+          ></span>
+          <input
+            [(ngModel)]="userID"
+            aria-describedby="basic-addon1"
+            type="text"
+            class="search-input form-control p-2 shadow"
+            placeholder="Search by Employee's ID"
+          />
+        </div>
+      </div>
+      <!--^search Employees's by gender =========================-->
+      <div class="col-md-5 mb-0 mt-2">
+        <div class="input-group">
+          <span class="_span input-group-text" id="basic-addon1"
+            ><i class="fa-solid fa-filter text-warning"></i
+          ></span>
+          <input
+            [(ngModel)]="userGender"
+            aria-describedby="basic-addon1"
+            type="text"
+            class="search-input form-control p-2 shadow"
+            placeholder="Filtering by Employee's Gender"
+          />
+        </div>
+      </div>
+
+      <div class="col-md-10 mx-auto mt-3">
+        <div class="table-container" *ngIf="users.length > 0; else wait">
+          <div
+            class="overflow-auto overflow-x-auto w-100 rounded overflow-hidden"
+          >
+            <table
+              class="text-center table table-bordered table-hover table-responsive table-dark h-100"
+            >
+              <thead class="table-active">
+                <tr>
+                  <th>#</th>
+                  <th>ID</th>
+                  <th>F - Name</th>
+                  <th>L - Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Position</th>
+                  <th>Gender</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class=""
+                  *ngFor="
+                    let user of users
+                      | slice
+                        : curPage * pageSize - pageSize
+                        : curPage * pageSize
+                      | search : userID
+                      | gendersearch : userGender;
+                    index as i
+                  "
+                >
+                  <td class="">{{ i + 1 }}</td>
+                  <td>{{ user.id }}</td>
+                  <td>{{ user.fName }}</td>
+                  <td>{{ user.lName }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>{{ user.phone }}</td>
+                  <td>
+                    <span
+                      [ngClass]="{
+                        'text-bg-warning': user.role === 'senior',
+                        'text-bg-success': user.role === 'junior',
+                        'text-bg-danger': user.role === 'manager',
+                        'text-bg-info': user.role === 'ceo',
+                        'text-bg-primary': user.role === 'leader'
+                      }"
+                      class="p-2 text-capitalize badge rounded-pill"
+                      >{{ user.role }}</span
+                    >
+                  </td>
+                  <td class="text-capitalize">{{ user.gender }}</td>
+
+                  <td class="">
+                    <button
+                      class="btn btn-outline-warning my-1"
+                      (click)="handleEditUser(user.id)"
+                    >
+                      <i class="fa-solid fa-pen"></i>
+                    </button>
+                    <button
+                      class="btn btn-outline-danger mx-2 my-1"
+                      (click)="handleDelete(user.id)"
+                    >
+                      <i class="fa-solid fa-trash"></i>
+                    </button>
+
+                    <button
+                      class="btn btn-outline-primary my-1"
+                      (click)="handleuserDetails(user.id)"
+                    >
+                      <i class="fa-solid fa-eye"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <hr class="mt-0 text-warning border-2" />
+
+          <div
+            class="kkk mb-2 shadow-lg d-flex align-items-center py-2 px-2 rounded-bottom gap-2 justify-content-between text-center flex-wrap"
+          >
+            <div class="total-container shadow rounded-1">
+              <p class="p-0 m-0">
+                Total :
+                <span class="text-warning fw-bold">{{ users.length }}</span>
+              </p>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center mx-0">
+              <button
+                [ngClass]="{
+                  'btn-warning': curPage == 1,
+                  'btn-outline-warning': curPage > 1
+                }"
+                class="btn rounded-2"
+                [disabled]="curPage == 1"
+                (click)="curPage = curPage - 1"
+              >
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+
+              <span class="info mx-1 rounded-1 p-2">
+                <span class="text-warning fw-bold"> {{ curPage }}</span> /
+                {{ numberOfPages() }}</span
+              >
+
+              <button
+                [ngClass]="{
+                  'btn-warning': curPage >= numberOfPages(),
+                  'btn-outline-warning': curPage < numberOfPages()
+                }"
+                class="btn rounded-2"
+                [disabled]="curPage >= numberOfPages()"
+                (click)="curPage = curPage + 1"
+              >
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <div class="total-container shadow rounded-1">
+              <p class="p-0 m-0">
+                Per Page :
+                <span class="text-warning">{{ pageSize }}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #wait>
+        <div class="col-md-8 mx-auto mb-0 mt-2">
+          <div class="msg-container p-2">
+            <div class="img-container mx-auto p-2 shadow-lg rounded">
+              <img src="assets/logos/box.png" alt="" class="w-100 h-100" />
+            </div>
+
+            <hr class="text-warning border-4" />
+            <p class="text-center p-3 lead fw-bold mx-auto rounded shadow-lg">
+              No Data Available.
+            </p>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</section>

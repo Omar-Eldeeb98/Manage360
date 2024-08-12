@@ -1,0 +1,219 @@
+div.dd img {
+  width: 45px;
+  height: 45px;
+}
+div.dd h1 {
+  color: #9fa8da;
+}
+
+.section-notfound {
+  width: 100%;
+  height: 100vh;
+}
+
+div.dd {
+  background-color: #3f51b5;
+}
+
+#send-btn {
+  background-color: #f8821e;
+  color: whitesmoke;
+  border: none;
+  width: 80px;
+  height: 50px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+footer input {
+  border-top-left-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+  border: none !important;
+  padding-inline-start: 4px;
+  font-size: 16px !important;
+}
+
+footer input::placeholder {
+  padding-left: 4px !important;
+}
+
+footer input:focus {
+  outline: 2px solid #f8821e;
+  // border: 5px solid #f8821e;
+  box-shadow: none;
+}
+
+#send-btn i {
+  font-size: 20px !important;
+}
+
+#send-btn:disabled {
+  background-color: transparent;
+  border: #f8821e;
+  border: 1px solid #f8821e;
+  color: #f8821e;
+  cursor: not-allowed;
+}
+
+.my-container_ {
+  background-color: #3f51b5;
+}
+
+.my-container {
+  // background-color: rgba(0, 0, 0, 0.716);
+
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: auto;
+  position: relative;
+}
+
+.clear-btn {
+  position: absolute;
+
+  background-color: transparent;
+  color: #9ea7d9;
+  padding: 8px 10px !important;
+  // border-radius: 4px;
+  border: 2px solid #3f51b5;
+  right: 1%;
+  transition: all ease 0.3s;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.clear-btn:hover {
+  color: #9ea7d9;
+  border: 2px solid transparent;
+  background-color: #3f51b5;
+}
+
+.my-container p {
+  color: #ff3e1a;
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+.my-container p span {
+  color: #ff9c01;
+}
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+}
+
+.chat-history {
+  height: 400px;
+  overflow: auto;
+}
+
+.user-box {
+  background-color: #ff3c1abe;
+  width: fit-content;
+  color: whitesmoke;
+  text-align: start;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  border-top-right-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+}
+
+.icon-con i {
+  font-size: 14px !important;
+  color: #ff3e1a;
+  background-color: black;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.user-box span {
+  font-size: 16px !important;
+  text-transform: capitalize !important;
+}
+
+.bot-box {
+  background-color: #ff9e01ba;
+  width: fit-content;
+  color: whitesmoke;
+  text-align: start;
+  display: flex;
+  align-items: start;
+  align-items: flex-start;
+  justify-content: start;
+  justify-content: flex-start;
+  border-top-right-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+}
+
+.icon-con_ i.b {
+  font-size: 14px !important;
+  color: #ff9c01;
+  background-color: black;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.copy {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.copy:hover {
+  transform: scale(1.2);
+}
+
+span.response {
+  font-size: 18px !important;
+  letter-spacing: 1px;
+  line-height: 1.8rem !important;
+}
+
+.empty-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 250px;
+  margin-inline: auto !important;
+  position: relative;
+  cursor: pointer;
+}
+.empty-container p {
+  position: absolute;
+  width: 300px !important;
+  right: 100%;
+  top: 35%;
+  background-color: #f8821e;
+  font-size: 16px !important;
+  color: whitesmoke;
+  font-weight: normal;
+  letter-spacing: 2px;
+  opacity: 0;
+  transition: all ease-in-out 0.5s;
+  border-top-right-radius: 25px !important;
+  border-bottom-left-radius: 25px !important;
+}
+
+.empty-container:hover p.msg_ {
+  opacity: 1;
+}
+
+//& =================== media queries =======================
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) {
+  .msg_ {
+    display: none !important;
+  }
+  .header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+  }
+}
