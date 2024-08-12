@@ -16,7 +16,7 @@ sweetalerts2, angular-highcharts, ngx-toastr, [json-server] for CRUD-S Operation
 
 ## Used APIs:
 - Authentication: https://note-sigma-black.vercel.app/api/v1/users/
-- Employees CRUD-S operations: [json-server] for localhost.
+- Employees CRUD-S operations: https://www.npmjs.com/package/json-server
 - Gemini apikey: https://aistudio.google.com/app/apikey
 
 #
